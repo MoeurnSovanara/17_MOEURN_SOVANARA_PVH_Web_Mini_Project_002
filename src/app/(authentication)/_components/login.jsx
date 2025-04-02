@@ -5,14 +5,16 @@ import { Label } from "@/components/ui/label";
 import { KeyRound, Mail } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import loginAction from "../../../../actions/login-action";
 
 export default function LoginComponent() {
   return (
-    <form className="space-y-6 bg-white" action={}>
+    <form className="space-y-6 bg-white" action={loginAction}>
       {/* email */}
       <div>
         <Label
-          htmlFor="email"
+          name="email"
+          type="text"
           className="text-light-steel-blue flex gap-2 items-start mb-2 text-base"
         >
           <Mail size={20} /> Email
@@ -28,7 +30,8 @@ export default function LoginComponent() {
       {/* password */}
       <div>
         <Label
-          htmlFor="password"
+          name="password"
+          type="text"
           className="text-light-steel-blue flex gap-2 items-start mb-2 text-base"
         >
           <KeyRound size={20} /> Password

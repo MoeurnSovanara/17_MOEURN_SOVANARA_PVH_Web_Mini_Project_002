@@ -1,6 +1,21 @@
-export default async function LoginData(){
-    const loginData = await fetch("http://96.9.81.187:8080/api/v1/auth/login")
-    const loginFetched = await registerData.json()
-    console.log(loginFetched)
-    return loginFetched;
-}
+"use server"
+import { redirect } from "next/navigation";
+
+export const loginService = async ({ email, password }) => {
+  const res = await fetch(`http://96.9.81.187:8080/api/v1/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  });
+  const data = await res.json();
+  console.log("loginService", data);
+  if (!data) {
+    redirect("/login");
+  }
+  return data;
+};

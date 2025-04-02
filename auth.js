@@ -1,7 +1,8 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { loginService } from "./Service/LoginService";
 
-export const { signIn } = NextAuth({
+export const { auth, signOut, signIn } = NextAuth({
   providers: [
     Credentials({
       credentials: {
@@ -15,4 +16,18 @@ export const { signIn } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async jwt(token) {
+      return token;
+    },
+    async session(props) {
+      const { token } = props;
+      return token.token.user;
+    },
+  },
+  strategy: "jwt",
+
+  pages: {
+    signIn: "/login",
+  },
 });
