@@ -1,10 +1,9 @@
 "use server"
 
 import { signIn } from "../auth";
-
-
-export default async function loginAction(formData){
-    const email=formData.get('email');
+import { redirect } from "next/navigation";
+export const loginAction=async(formData)=>{
+    const email = formData.get('email')
     const password=formData.get('password');
 
     await signIn("credentials",{
@@ -12,4 +11,5 @@ export default async function loginAction(formData){
         password,
         redirect: false,
     });
+    redirect("/dashboard");
 }

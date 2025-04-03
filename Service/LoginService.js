@@ -1,5 +1,4 @@
-"use server"
-import { redirect } from "next/navigation";
+
 
 export const loginService = async ({ email, password }) => {
   const res = await fetch(`http://96.9.81.187:8080/api/v1/auth/login`, {
@@ -8,14 +7,11 @@ export const loginService = async ({ email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: email,
+      email:email,
       password: password,
     }),
   });
   const data = await res.json();
-  console.log("loginService", data);
-  if (!data) {
-    redirect("/login");
-  }
+  console.log(data);
   return data;
 };

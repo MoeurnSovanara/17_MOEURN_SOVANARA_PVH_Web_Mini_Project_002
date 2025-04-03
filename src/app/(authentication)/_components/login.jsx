@@ -5,7 +5,8 @@ import { Label } from "@/components/ui/label";
 import { KeyRound, Mail } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import loginAction from "../../../../actions/login-action";
+import { loginAction } from "../../../../actions/login-action";
+
 
 export default function LoginComponent() {
   return (
@@ -22,6 +23,7 @@ export default function LoginComponent() {
 
         <Input
           type="text"
+          name="email"
           placeholder="Please type your email"
           className={`bg-ghost-white py-2.5 px-4 rounded-lg w-full text-light-steel-blue/90`}
         />
@@ -39,6 +41,7 @@ export default function LoginComponent() {
 
         <Input
           type="password"
+          name="password"
           placeholder="Please type your password"
           className={`bg-ghost-white py-2.5 px-4 rounded-lg w-full text-light-steel-blue/90`}
         />

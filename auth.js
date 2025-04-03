@@ -1,6 +1,6 @@
+import { loginService } from "./Service/LoginService";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { loginService } from "./Service/LoginService";
 
 export const { auth, signOut, signIn } = NextAuth({
   providers: [
@@ -22,7 +22,8 @@ export const { auth, signOut, signIn } = NextAuth({
     },
     async session(props) {
       const { token } = props;
-      return token.token.user;
+      // console.log("session in session ", token);
+      return token;
     },
   },
   strategy: "jwt",

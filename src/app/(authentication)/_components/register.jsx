@@ -5,10 +5,11 @@ import { Label } from "@/components/ui/label";
 import { KeyRound, Mail, UserRound } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { RegisterAction } from "../../../../actions/register-action";
 
 export default function RegisterComponent() {
   return (
-    <form className="space-y-6">
+    <form className="space-y-6" action={RegisterAction}>
       {/* username */}
       <div>
         <Label
@@ -19,6 +20,7 @@ export default function RegisterComponent() {
         </Label>
 
         <Input
+          name="username"
           type="text"
           placeholder="Please type your username"
           className={` bg-ghost-white py-2.5 px-4 rounded-lg w-full text-light-steel-blue/90`}
@@ -36,6 +38,7 @@ export default function RegisterComponent() {
 
         <Input
           type="text"
+          name="email"
           placeholder="Please type your email"
           className={`bg-ghost-white py-2.5 px-4 rounded-lg w-full text-light-steel-blue/90`}
         />
@@ -52,6 +55,7 @@ export default function RegisterComponent() {
 
         <Input
           type="password"
+          name="password"
           placeholder="Please type your password"
           className={`bg-ghost-white py-2.5 px-4 rounded-lg w-full text-light-steel-blue/90`}
         />
