@@ -3,7 +3,7 @@ export const GetWorkSpaceService =async () => {
         method: "GET",
         headers: {
            "accept": "*/*",
-           "Authorization":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dLCJzdWIiOiJsaWlwMjgzNjlAZ21haWwuY29tIiwiaWF0IjoxNzQzNjYxMTMzLCJleHAiOjE3NDM3NDc1MzN9.lbuzqMh-HgGXaMFs4QIq3qjwqc2anhM9nHxmWF1ysy0Pp9iXTQ7JRBhyjOJyTtDfoFdLXD1EF5hx35KxfSiOdA"
+           "Authorization":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dLCJzdWIiOiJzb3ZhbmFyYTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3NDM2ODkwNDcsImV4cCI6MTc0Mzc3NTQ0N30.pYXsqCMoDUsfWiQIiXtzf9v1M2XKkzzunJGn_cUjNWvXjoJ8NLt7eVn9qPMJFOeVR74JU6oGDu7qXPARnwVldg"
         },
     });
     const data = await res.json();
