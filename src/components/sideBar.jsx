@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";  // Import React here
+import React, { useState, useEffect } from "react"; 
 import Image from "next/image";
 import LogoutIcon from "../../public/icon/logout.svg";
 import Logo from "./logo";
