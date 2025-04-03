@@ -7,5 +7,6 @@ export const GetWorkSpaceService =async () => {
         },
     });
     const data = await res.json();
-    console.log(data);
+    console.log(" Data from GetWorkSpaceService",data);
+    return data;
 }
