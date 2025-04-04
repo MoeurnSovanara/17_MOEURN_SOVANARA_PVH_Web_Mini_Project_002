@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Image from "next/image";
 import arrowRight from "../../../../public/icon/arrowRight.svg"
@@ -7,10 +6,15 @@ import CardComponent from "@/components/card";
 import Sidebar from "@/components/sideBar";
 import UserProfile from "@/components/userProfile";
 import Star from "../../../../public/icon/star.svg"
+import { Button } from "@/components/ui/button";
+import AddMore from "../../../../public/icon/addSquare.png"
+import { taskService } from "../../../../Service/taskServices";
 
 export default async function DashboardPage() {
   const data = await GetWorkSpaceService();
   console.log("Data from GetWorkSpaceService", data);
+  const workspaces = await taskService(data?.payload?.taskId);
+  console.log("Data from taskService", workspaces);
 
   return (
     <div className="flex md:grid-cols-[300px_1fr] gap-4">
@@ -70,6 +74,14 @@ export default async function DashboardPage() {
               <CardComponent />
             </div>
           ))}
+        </div>
+        {/* Footer */}
+        <div className="w-full border-t-0 text-gray-400 flex justify-end">
+          <Button  className="bg-green-300 w-auto px-10 py-7 text-2xl rounded-2xl place-self-end" onClick>
+            
+            <Image src={AddMore} alt="pic" className=""></Image>
+            Add Task
+            </Button>
         </div>
       </div>
     </div>
